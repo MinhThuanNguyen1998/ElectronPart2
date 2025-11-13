@@ -13,7 +13,7 @@ public class ModelLoader : MonoBehaviour
     private void OnEnable()
     {
         LoadStateModel(Config.Solid);
-        LoadElementModel(Config.Sunfur );
+        LoadElementModel(Config.Sunfur);
     } 
     public void LoadStateModel(string state)
     {
