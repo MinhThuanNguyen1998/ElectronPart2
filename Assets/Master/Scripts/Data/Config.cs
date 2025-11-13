@@ -1,0 +1,43 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+public class Config 
+{
+    // Path
+    public static string StreamingAssetsPath => Application.streamingAssetsPath;
+    public const string ElementsData = "ElementsData.json";
+    public const string FullElementDetails = "FullElementDetails.json";
+
+
+    // Text Button
+    public const string Button_Yes = "Đồng ý";
+    public const string Button_No = "Không";
+
+
+    // State Of Matter
+    public static string Solid = "Rắn";
+    public static string Liquid = "Lỏng";
+    public static string Gas = "Khí";
+
+    public static string Sunfur = "Sulfur";
+    public static Dictionary<string, List<string>> ElementsByState = new Dictionary<string, List<string>>()
+    {
+        { "Rắn", new List<string>
+        {
+            "Sulfur", "Phosphorus", "Iodine", "Carbon", "Silicon", "Copper", "Calcium", "Aluminium",
+            "Silver", "Magnesium", "Iron", "Zinc", "Sodium", "Gold", "Lead", "Barium", "Potassium",
+            "Manganese", "Beryllium"
+        }
+        },
+        { "Lỏng", new List<string>
+        {
+            "Bromine", "Mercury"
+        }
+        },
+        { "Khí", new List<string>
+        {
+            "Chlorine", "Oxygen", "Nitrogen", "Helium", "Neon", "Argon", "Fluorine", "Hydrogen"
+        }
+        }
+        };
+    }
