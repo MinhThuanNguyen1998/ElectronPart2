@@ -3,7 +3,7 @@ Shader "LiquidVolume/MultipleNoFlask" {
 		[HideInInspector] _DitherStrength ("Dither Strength", Float) = 0.5
 		[HideInInspector] _FoamColor ("Foam Color", Color) = (1,1,1,0.9)
 		[HideInInspector] _FlaskThickness ("Flask Thickness", Vector) = (0.05,0.05,0.05)
-		[HideInInspector] _GlossinessInt ("Internal Smoothness", Vector) = (0.5, 180, 0.3)
+		[HideInInspector] _LVPGlossinessInt ("Internal Smoothness", Vector) = (0.5, 180, 0.3)
 		[HideInInspector] _Muddy ("Muddy", Range(0,1)) = 1.0
 		[HideInInspector] _Turbulence ("Turbulence", Vector) = (1.0,1.0,1.0,0)
 		[HideInInspector] _TurbulenceSpeed("Turbulence Speed", Float) = 1
