@@ -13,7 +13,7 @@ public class ModelLoader : MonoBehaviour
     private void OnEnable()
     {
         LoadStateModel(Config.Solid);
-        LoadElementModel(Config.Sunfur);
+        LoadElementModel(Config.DefaultState_Solid);
     } 
     public void LoadStateModel(string state)
     {
@@ -24,12 +24,15 @@ public class ModelLoader : MonoBehaviour
         {
             case var _ when state == Config.Solid:
                 prefabToLoad = m_SolidModel;
+                LoadElementModel(Config.DefaultState_Solid);
                 break;
             case var _ when state == Config.Liquid:
                 prefabToLoad = m_LiquidModel;
+                LoadElementModel(Config.DefaultState_Liquid);
                 break;
             case var _ when state == Config.Gas:
                 prefabToLoad = m_GasModel;
+                LoadElementModel(Config.DefaultState_Gas);
                 break;
             default:
                 Debug.LogWarning($"[ModelLoader] Can not find state: {state}");
@@ -52,7 +55,6 @@ public class ModelLoader : MonoBehaviour
         }
         else Debug.LogWarning($"[ModelLoader] Prefab not found for element: {elementName}. Expected path: Resources/Models/{elementName}.prefab");
     }
-
     private void ClearModel(ref GameObject model)
     {
         if (model != null)

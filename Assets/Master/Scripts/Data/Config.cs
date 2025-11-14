@@ -19,7 +19,10 @@ public class Config
     public static string Liquid = "Lỏng";
     public static string Gas = "Khí";
 
-    public static string Sunfur = "Sulfur";
+    public static string DefaultState_Solid => ElementsByState["Rắn"][0];
+    public static string DefaultState_Liquid => ElementsByState["Lỏng"][0];
+    public static string DefaultState_Gas => ElementsByState["Khí"][0];
+
     public static Dictionary<string, List<string>> ElementsByState = new Dictionary<string, List<string>>()
     {
         { "Rắn", new List<string>
