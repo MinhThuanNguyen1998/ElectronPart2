@@ -12,10 +12,10 @@ public class LabMode : MonoBehaviour
     [SerializeField] private TMP_Dropdown m_DropDownStateOfMatter;
     [SerializeField] private TMP_Dropdown m_DropDownAtomic;
     [SerializeField] private ModelLoader m_ModelLoader;
-
+    [SerializeField] private StepAtomicManager m_StepAtomicManager;
     private void OnEnable() 
     {
-        UpdateElementDropdown(Config.Solid);
+        SetDefaultState();
         m_DropDownStateOfMatter.onValueChanged.AddListener(OnStateChanged);
         m_DropDownAtomic.onValueChanged.AddListener(OnElementChanged);
     }
@@ -24,12 +24,12 @@ public class LabMode : MonoBehaviour
         m_DropDownStateOfMatter.onValueChanged.RemoveListener(OnStateChanged);
         m_DropDownAtomic.onValueChanged.RemoveListener (OnElementChanged);
     } 
-   
     private void OnStateChanged(int index)
     {
         string selectedState = m_DropDownStateOfMatter.options[index].text;
         UpdateElementDropdown(selectedState);
         m_ModelLoader?.LoadStateModel(selectedState);
+        m_StepAtomicManager?.SetState(selectedState);
     }
     private void OnElementChanged(int index)
     {
@@ -39,10 +39,16 @@ public class LabMode : MonoBehaviour
     private void UpdateElementDropdown(string state)
     {
         m_DropDownAtomic.ClearOptions();
+        //Debug.Log("SelectedState:" + state);
         if (Config.ElementsByState.ContainsKey(state))
         {
             m_DropDownAtomic.AddOptions(Config.ElementsByState[state]);
         }
         else Debug.LogWarning($"[LabMode] No elements found for state: '{state}'. Please check Config.ElementsByState.");
+    }
+    private void SetDefaultState()
+    {
+        UpdateElementDropdown(Config.Solid);
+        m_StepAtomicManager?.SetState(Config.Solid);
     }
 }

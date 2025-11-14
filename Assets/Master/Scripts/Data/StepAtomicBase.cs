@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public abstract class StepBase : MonoBehaviour
+public abstract class StepAtomicBase : MonoBehaviour
 {
     public int TotalSteps { get; protected set; }
     public int CurretSteps { get; protected set; }
@@ -13,20 +13,12 @@ public abstract class StepBase : MonoBehaviour
     protected void NextStep()
     {
         CurretSteps++;
-        if(CurretSteps <= TotalSteps)
-        {
-            ExecuteCurrentStep();
-        }
-        else
-        {
-            OnAllStepCompleted();
-        }
+        if(CurretSteps <= TotalSteps) ExecuteCurrentStep();
+        else OnAllStepCompleted();
     }
 
     protected abstract void ExecuteCurrentStep();
     
-    protected virtual void OnAllStepCompleted()
-    {
-
-    }
+    protected virtual void OnAllStepCompleted() { }
+    
 }

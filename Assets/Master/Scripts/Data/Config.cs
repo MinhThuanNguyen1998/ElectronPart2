@@ -15,9 +15,9 @@ public class Config
 
 
     // State Of Matter
-    public static string Solid = "Rắn";
-    public static string Liquid = "Lỏng";
-    public static string Gas = "Khí";
+    public const string Solid = "Rắn";
+    public const string Liquid = "Lỏng";
+    public const string Gas = "Khí";
 
     public static string DefaultState_Solid => ElementsByState["Rắn"][0];
     public static string DefaultState_Liquid => ElementsByState["Lỏng"][0];

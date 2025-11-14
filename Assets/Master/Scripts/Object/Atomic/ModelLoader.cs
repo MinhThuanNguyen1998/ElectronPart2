@@ -20,6 +20,7 @@ public class ModelLoader : MonoBehaviour
         ClearCurrentStateModel();
         ClearCurrentElementModel();
         GameObject prefabToLoad = null;
+        //Debug.Log("State:" + state);
         switch (state)
         {
             case var _ when state == Config.Solid:
@@ -65,7 +66,6 @@ public class ModelLoader : MonoBehaviour
             System.GC.Collect();
         }
     }
-
     private void ClearCurrentStateModel() => ClearModel(ref m_CurrentStateModel);
     private void ClearCurrentElementModel() => ClearModel(ref m_CurrentElementModel);
 
