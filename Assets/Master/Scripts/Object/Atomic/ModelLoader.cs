@@ -10,38 +10,42 @@ public class ModelLoader : MonoBehaviour
 
     private GameObject m_CurrentStateModel;
     private GameObject m_CurrentElementModel;
+
     private void OnEnable()
     {
-        LoadStateModel(Config.Solid);
+        InitializeDefault();
+    }
+    private void InitializeDefault()
+    {
+        LoadStateModel(Config.Solid, loadDefaultElement: false);
         LoadElementModel(Config.DefaultState_Solid);
-    } 
-    public void LoadStateModel(string state)
+       
+    }
+    public void LoadStateModel(string state, bool loadDefaultElement = true)
     {
         ClearCurrentStateModel();
         ClearCurrentElementModel();
         GameObject prefabToLoad = null;
-        //Debug.Log("State:" + state);
         switch (state)
         {
             case var _ when state == Config.Solid:
                 prefabToLoad = m_SolidModel;
-                LoadElementModel(Config.DefaultState_Solid);
+                if (loadDefaultElement) LoadElementModel(Config.DefaultState_Solid);
                 break;
+
             case var _ when state == Config.Liquid:
                 prefabToLoad = m_LiquidModel;
-                LoadElementModel(Config.DefaultState_Liquid);
+                if (loadDefaultElement) LoadElementModel(Config.DefaultState_Liquid);
                 break;
+
             case var _ when state == Config.Gas:
                 prefabToLoad = m_GasModel;
-                LoadElementModel(Config.DefaultState_Gas);
+                if (loadDefaultElement) LoadElementModel(Config.DefaultState_Gas);
                 break;
-            default:
-                Debug.LogWarning($"[ModelLoader] Can not find state: {state}");
-                return;
         }
         if (prefabToLoad != null)
         {
-            m_CurrentStateModel = Instantiate(prefabToLoad,Vector3.zero, Quaternion.identity);
+            m_CurrentStateModel = Instantiate(prefabToLoad, Vector3.zero, Quaternion.identity);
             m_CurrentStateModel.transform.parent = transform;
         }
     }
