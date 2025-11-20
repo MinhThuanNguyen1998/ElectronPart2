@@ -6,21 +6,24 @@ public class MovingObjectByMouse : MonoBehaviour
 {
     [SerializeField] private Renderer m_BoundaryCube;
     private Vector3 m_Offset;
-    private Vector3 m_InitialPosition;
-
-    private bool m_IsCanMoveByMouse = false;
     private bool m_IsDragging = false;
-
     private Bounds m_Bounds;
 
+    private void Awake()
+    {
+        if (m_BoundaryCube == null)
+        {
+            GameObject boundary = GameObject.FindGameObjectWithTag("Boundary");
+            if (boundary != null) m_BoundaryCube = boundary.GetComponent<Renderer>();
+            else Debug.Log("Can not find Object with tag name is Boundary");
+        }
+    }
     private void Start()
     {
         if (m_BoundaryCube != null) m_Bounds = m_BoundaryCube.bounds;
-        m_InitialPosition = transform.position;
     }
     private void OnMouseDown()
     {
-        if (!m_IsCanMoveByMouse) return;
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z; 
         m_Offset = transform.position - Camera.main.ScreenToWorldPoint(mousePosition);
@@ -28,7 +31,6 @@ public class MovingObjectByMouse : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        if (!m_IsCanMoveByMouse) return;
         if (m_IsDragging)
         {
             Vector3 mousePosition = Input.mousePosition;
@@ -42,7 +44,5 @@ public class MovingObjectByMouse : MonoBehaviour
         }
     }
     private void OnMouseUp() => m_IsDragging = true;
-    public void CheckMovingObjectByMouse(bool isMoving) =>m_IsCanMoveByMouse = isMoving;
-    public void ResetTransform() => transform.position = m_InitialPosition;   
 }
 
