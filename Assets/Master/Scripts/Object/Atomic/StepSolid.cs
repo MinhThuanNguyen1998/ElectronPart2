@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class StepSolid : StepAtomicBase
 {
-    public override void StartStep()
+
+    private void OnEnable()
     {
-        Debug.Log("StartStepSolid");
+        TotalSteps = 2;
+        StartStep();
+        Debug.Log("StepSolid");
     }
     protected override void ExecuteCurrentStep()
     {
-        
+        Debug.Log("Step step: " + CurretSteps);
     }
 }

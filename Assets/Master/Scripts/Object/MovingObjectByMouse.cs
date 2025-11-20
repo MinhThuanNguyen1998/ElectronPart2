@@ -6,7 +6,7 @@ public class MovingObjectByMouse : MonoBehaviour
 {
     [SerializeField] private Renderer m_BoundaryCube;
     private Vector3 m_Offset;
-    private bool m_IsDragging = false;
+    public bool m_IsDragging = false;
     private Bounds m_Bounds;
 
     private void Awake()
@@ -43,6 +43,6 @@ public class MovingObjectByMouse : MonoBehaviour
             transform.position = newPosition;
         }
     }
-    private void OnMouseUp() => m_IsDragging = true;
+    private void OnMouseUp() => m_IsDragging = false;
 }
 

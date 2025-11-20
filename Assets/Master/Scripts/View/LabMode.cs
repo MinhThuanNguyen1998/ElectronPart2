@@ -12,7 +12,7 @@ public class LabMode : MonoBehaviour
     [SerializeField] private TMP_Dropdown m_DropDownStateOfMatter;
     [SerializeField] private TMP_Dropdown m_DropDownAtomic;
     [SerializeField] private ModelLoader m_ModelLoader;
-    [SerializeField] private StepAtomicManager m_StepAtomicManager;
+    //[SerializeField] private StepAtomicManager m_StepAtomicManager;
     private void OnEnable() 
     {
         SetDefaultState();
@@ -29,7 +29,7 @@ public class LabMode : MonoBehaviour
         string selectedState = m_DropDownStateOfMatter.options[index].text;
         UpdateElementDropdown(selectedState);
         m_ModelLoader?.LoadStateModel(selectedState);
-        m_StepAtomicManager?.SetState(selectedState);
+        //m_StepAtomicManager?.SetState(selectedState);
     }
     private void OnElementChanged(int index)
     {
@@ -49,6 +49,6 @@ public class LabMode : MonoBehaviour
     private void SetDefaultState()
     {
         UpdateElementDropdown(Config.Solid);
-        m_StepAtomicManager?.SetState(Config.Solid);
+        //m_StepAtomicManager?.SetState(Config.Solid);
     }
 }
