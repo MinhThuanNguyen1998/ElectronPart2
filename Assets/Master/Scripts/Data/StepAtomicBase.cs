@@ -9,6 +9,7 @@ public abstract class StepAtomicBase : MonoBehaviour
     public virtual void StartStep()
     {
         CurretSteps = 0;
+        ExecuteCurrentStep();
     }
     public void GoToNextStep()
     {
@@ -40,5 +41,4 @@ public abstract class StepAtomicBase : MonoBehaviour
     protected abstract void ExecuteCurrentStep();
     
     protected virtual void OnAllStepCompleted() { }
-    
 }

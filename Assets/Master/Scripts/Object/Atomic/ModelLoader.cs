@@ -60,6 +60,7 @@ public class ModelLoader : MonoBehaviour
         }
         else Debug.LogWarning($"[ModelLoader] Prefab not found for element: {elementName}. Expected path: Resources/Models/{elementName}.prefab");
     }
+  
     private void ClearModel(ref GameObject model)
     {
         if (model != null)
