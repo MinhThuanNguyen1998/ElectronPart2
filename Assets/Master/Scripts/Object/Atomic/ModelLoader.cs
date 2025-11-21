@@ -10,6 +10,7 @@ public class ModelLoader : MonoBehaviour
 
     private GameObject m_CurrentStateModel;
     private GameObject m_CurrentElementModel;
+    private Dictionary<string, GameObject> elementPrefabCache = new();
 
     private void OnEnable()
     {
@@ -52,13 +53,21 @@ public class ModelLoader : MonoBehaviour
     public void LoadElementModel(string elementName)
     {
         ClearCurrentElementModel();
-        GameObject prefabToLoad = Resources.Load<GameObject>($"Models/{elementName}");
-        if (prefabToLoad != null)
+        if (!elementPrefabCache.TryGetValue(elementName, out GameObject prefabToLoad))
         {
-            m_CurrentElementModel = Instantiate(prefabToLoad);
-            m_CurrentElementModel.transform.parent = transform;
+            prefabToLoad = Resources.Load<GameObject>($"Models/{elementName}");
+            if (prefabToLoad != null)
+            {
+                elementPrefabCache[elementName] = prefabToLoad; // Cache prefab
+            }
+            else
+            {
+                Debug.LogWarning($"[ModelLoader] Prefab not found for element: {elementName}. Expected path: Resources/Models/{elementName}.prefab");
+                return;
+            }
         }
-        else Debug.LogWarning($"[ModelLoader] Prefab not found for element: {elementName}. Expected path: Resources/Models/{elementName}.prefab");
+        m_CurrentElementModel = Instantiate(prefabToLoad);
+        m_CurrentElementModel.transform.parent = transform;
     }
   
     private void ClearModel(ref GameObject model)
@@ -67,8 +76,6 @@ public class ModelLoader : MonoBehaviour
         {
             Destroy(model);
             model = null;
-            Resources.UnloadUnusedAssets();
-            System.GC.Collect();
         }
     }
     private void ClearCurrentStateModel() => ClearModel(ref m_CurrentStateModel);
