@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 2307124560744459923}
   - component: {fileID: 3023804703019147440}
   m_Layer: 0
-  m_Name: ParentMoving (1)
+  m_Name: 'PetriMoving '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_BoundaryCube: {fileID: 0}
   m_UseSpecialYLimit: 0
   m_IsDragging: 0
+  m_BoundYOffset: 1.5
 --- !u!114 &2307124560744459923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +489,7 @@ GameObject:
   - component: {fileID: 8349627801612920413}
   - component: {fileID: 913265374018341000}
   m_Layer: 0
-  m_Name: ParentMoving
+  m_Name: TweezersMoving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,6 +628,7 @@ MonoBehaviour:
   m_BoundaryCube: {fileID: 0}
   m_UseSpecialYLimit: 1
   m_IsDragging: 0
+  m_BoundYOffset: 1.5
 --- !u!114 &6042065479181899210
 MonoBehaviour:
   m_ObjectHideFlags: 0
