@@ -838,8 +838,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6564039, y: 0.40987617, z: 1}
-  m_Center: {x: -0.019480309, y: -0.29506192, z: 0}
+  m_Size: {x: 0.6564039, y: 0.30724192, z: 1}
+  m_Center: {x: -0.019480309, y: -0.34637904, z: 0}
 --- !u!1 &6429411771598725771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LiquidVolumePipet: {fileID: 3598308470652011644}
-  m_TubeLiquidVolumeTube: {fileID: 6152997863711077343}
+  m_LiquidVolumeTube: {fileID: 6152997863711077343}
   m_StepLiquid: {fileID: 5266939391683334254}
 --- !u!1 &8974095103291125749
 GameObject:
@@ -1635,7 +1635,39 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _foamScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _upperLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _foamColor.a
+      value: 0.2627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _foamColor.b
+      value: 0.9483357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _foamColor.g
+      value: 0.9483357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _foamColor.r
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
       propertyPath: _smokeEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _foamThickness
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653745142951294704, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
+      propertyPath: _foamTurbulence
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8859089663482910791, guid: 66e9be712e578ef46bf21517a021be60, type: 3}
@@ -1754,5 +1786,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.018154806, y: 0.045201752, z: 0.01815481}
-  m_Center: {x: -0.00000015149514, y: -0.039899126, z: -0.00000057866174}
+  m_Size: {x: 0.018154806, y: 0.05371751, z: 0.01815481}
+  m_Center: {x: -0.00000015149514, y: -0.035641246, z: -0.00000057866174}

@@ -24,6 +24,7 @@ public class MovingObjectByMouse : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (MouseDragLock.IsBlocked) return;
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z; 
         m_Offset = transform.position - Camera.main.ScreenToWorldPoint(mousePosition);
@@ -31,6 +32,7 @@ public class MovingObjectByMouse : MonoBehaviour
     }
     private void OnMouseDrag()
     {
+        if (MouseDragLock.IsBlocked) return;
         if (m_IsDragging)
         {
             Vector3 mousePosition = Input.mousePosition;
