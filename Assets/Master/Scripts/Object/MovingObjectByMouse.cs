@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 public class MovingObjectByMouse : MonoBehaviour
 {
     [SerializeField] private Renderer m_BoundaryCube;
+    [SerializeField] private bool m_UseSpecialYLimit;
     private Vector3 m_Offset;
     public bool m_IsDragging = false;
     private Bounds m_Bounds;
+    [SerializeField] private float m_BoundYOffset = 1.5f;
 
     private void Awake()
     {
@@ -41,7 +43,8 @@ public class MovingObjectByMouse : MonoBehaviour
             Vector3 screenPos = Camera.main.WorldToScreenPoint(newPosition);
             newPosition = Camera.main.ScreenToWorldPoint(screenPos);
             newPosition.x = Mathf.Clamp(newPosition.x, m_Bounds.min.x, m_Bounds.max.x);
-            newPosition.y = Mathf.Clamp(newPosition.y, m_Bounds.min.y, m_Bounds.max.y);
+            if(m_UseSpecialYLimit) newPosition.y = Mathf.Clamp(newPosition.y, m_Bounds.min.y + m_BoundYOffset, m_Bounds.max.y);
+            else newPosition.y = Mathf.Clamp(newPosition.y, m_Bounds.min.y, m_Bounds.max.y);
             transform.position = newPosition;
         }
     }
