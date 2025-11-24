@@ -1,6 +1,8 @@
 using System.Collections;
 using LiquidVolumeFX;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
+using static UnityEngine.GraphicsBuffer;
 
 public class PipetTrigger : MonoBehaviour
 {
@@ -16,16 +18,16 @@ public class PipetTrigger : MonoBehaviour
     {
         if (other.CompareTag("Tube"))
         {
-            if (!m_IsPipetFilled || m_LiquidVolumeTube.level >= 0.5) return;
-            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MinLevelVolume, m_DurationTime));
-            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumeTube, m_MaxLevelVolume, m_DurationTime));
+            if (!m_IsPipetFilled || m_LiquidVolumeTube.level >= m_MaxLevelVolume) return;
+            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MinLevelVolume, m_DurationTime)); // Transfer volume from source pipet to target tube and set volume of pipet = 0
+            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumeTube, m_MaxLevelVolume, m_DurationTime)); // Transfer volume from source pipet to target tube and set volume of tube = 0.5
             m_StepLiquid?.GoToNextStep();
         }
         else if (other.CompareTag("Flask"))
         {
-            if (m_LiquidVolumePipet.level >= 0.5 || m_LiquidVolumeTube.level >= 0.5) return;
+            if (m_LiquidVolumePipet.level >= m_MaxLevelVolume || m_LiquidVolumeTube.level >= m_MaxLevelVolume) return;
             m_IsPipetFilled = true;
-            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MaxLevelVolume, m_DurationTime));
+            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MaxLevelVolume, m_DurationTime)); // Transfer volume from source flask to target pipet and set volume of pipet = 0.5
             m_StepLiquid?.GoToNextStep();
         }
     }
