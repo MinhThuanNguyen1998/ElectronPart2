@@ -10,8 +10,8 @@ public class GasTrigger : MonoBehaviour
     [SerializeField] private Material m_EffectMaterial;
     [SerializeField] private List<Renderer> m_ListRenderer;
     private bool m_IsGasTrigger = false;
-    private float m_LerpDuration = 6f;
-    private float m_TimeToChangeMaterial = 8f;
+    private float m_LerpDuration = 14f;
+    private float m_TimeToChangeMaterial = 18f;
     private void OnTriggerEnter(Collider other)
     {
         if (m_IsGasTrigger) return;
@@ -19,18 +19,12 @@ public class GasTrigger : MonoBehaviour
         {
             m_StepGas?.GoToNextStep();
             m_IsGasTrigger = true;
-            StartCoroutine(ChangeMaterialAfterDelay(m_TimeToChangeMaterial, m_LerpDuration));
+            StartCoroutine(LerpMaterial(m_OriginMaterial, m_EffectMaterial, m_LerpDuration));
         }
-    }
-    private IEnumerator ChangeMaterialAfterDelay(float delay, float lerpDuration)
-    {
-        MouseDragLock.Block();
-        yield return new WaitForSeconds(delay);
-        yield return LerpMaterial(m_OriginMaterial, m_EffectMaterial, lerpDuration);
     }
     private IEnumerator LerpMaterial(Material fromMat, Material toMat, float duration)
     {
-       
+        MouseDragLock.Block();
         float time = 0f;
         while (time < duration)
         {
