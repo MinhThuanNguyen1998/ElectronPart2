@@ -7,7 +7,7 @@ public class ModelLoader : MonoBehaviour
     [SerializeField] private GameObject m_SolidModel;
     [SerializeField] private GameObject m_LiquidModel;
     [SerializeField] private GameObject m_GasModel;
-
+    [SerializeField] private ElementChecker m_ElementChecker;
     private GameObject m_CurrentStateModel;
     private GameObject m_CurrentElementModel;
     private Dictionary<string, GameObject> elementPrefabCache = new();
@@ -20,7 +20,6 @@ public class ModelLoader : MonoBehaviour
     {
         LoadStateModel(Config.Solid, loadDefaultElement: false);
         LoadElementModel(Config.DefaultState_Solid);
-       
     }
     public void LoadStateModel(string state, bool loadDefaultElement = true)
     {
@@ -52,6 +51,7 @@ public class ModelLoader : MonoBehaviour
     }
     public void LoadElementModel(string elementName)
     {
+        //Debug.Log("Atomic:" + elementName); 
         ClearCurrentElementModel();
         if (!elementPrefabCache.TryGetValue(elementName, out GameObject prefabToLoad))
         {
@@ -68,6 +68,7 @@ public class ModelLoader : MonoBehaviour
         }
         m_CurrentElementModel = Instantiate(prefabToLoad);
         m_CurrentElementModel.transform.parent = transform;
+        m_ElementChecker?.OnCheckElement(elementName);
     }
   
     private void ClearModel(ref GameObject model)
