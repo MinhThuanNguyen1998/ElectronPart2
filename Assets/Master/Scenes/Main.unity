@@ -1630,7 +1630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &57032135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1730,7 +1730,7 @@ Transform:
   m_GameObject: {fileID: 57032134}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3856812, y: -2.9852142, z: -1.5}
+  m_LocalPosition: {x: 7.74, y: -2.9852142, z: -1.5}
   m_LocalScale: {x: 0.20959964, y: 1.1169862, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20740,12 +20740,7 @@ MonoBehaviour:
   m_AudioSource: {fileID: 1906487771}
   m_AudioPopupClip: {fileID: 8300000, guid: de237685fd1c0f8418aebccfbdb45954, type: 3}
   m_AudioButtonClip: {fileID: 8300000, guid: 5f29313afe89d8a46944344f7408d3d4, type: 3}
-  m_AudioIntroductionClip: {fileID: 8300000, guid: 2ff6597efe12b284e8f6102c53b19998, type: 3}
-  m_AudioElectronDrag: {fileID: 8300000, guid: 8cd930edd8145d1479a1c14cc57699df, type: 3}
-  m_Atomic_Number: {fileID: 8300000, guid: c7960d9b90f258e4187e69256ac68734, type: 3}
-  m_Atomic_Mass: {fileID: 8300000, guid: e972fc9b5ed87284a923e28364a36801, type: 3}
-  m_Atomic_Symbol: {fileID: 8300000, guid: 05e363fdbe477c145abb97f23f9e208d, type: 3}
-  m_Atomic_Name: {fileID: 8300000, guid: fc1efc17b56115b4a8f5d852fef16264, type: 3}
+  m_AudioClampDrag: {fileID: 8300000, guid: 81972efcb20f9694189e04050fb2e522, type: 3}
 --- !u!4 &1906487773
 Transform:
   m_ObjectHideFlags: 0

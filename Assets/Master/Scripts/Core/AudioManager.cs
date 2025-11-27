@@ -5,12 +5,8 @@ public enum SoundType
 {
     Button,
     Popup,
-    Introduction,
-    ElectronDrag,
-    Atomic_Number,
-    Atomic_Mass,
-    Atomic_Symbol,
-    Atomic_Name
+    ClampDrag,
+ 
 
 }
 public class AudioMainManager : SingletonMain<AudioMainManager>
@@ -19,13 +15,8 @@ public class AudioMainManager : SingletonMain<AudioMainManager>
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_AudioPopupClip;
     [SerializeField] private AudioClip m_AudioButtonClip;
-    [SerializeField] private AudioClip m_AudioIntroductionClip;
-    [SerializeField] private AudioClip m_AudioElectronDrag;
-    [Header("Audio Atomic")]
-    [SerializeField] private AudioClip m_Atomic_Number;
-    [SerializeField] private AudioClip m_Atomic_Mass;
-    [SerializeField] private AudioClip m_Atomic_Symbol;
-    [SerializeField] private AudioClip m_Atomic_Name;
+    [SerializeField] private AudioClip m_AudioClampDrag;
+ 
 
     private Dictionary<SoundType, AudioClip> m_SoundMap;
     private void Awake()
@@ -33,13 +24,8 @@ public class AudioMainManager : SingletonMain<AudioMainManager>
         m_SoundMap = new Dictionary<SoundType, AudioClip>
         {
             { SoundType.Button, m_AudioButtonClip },
-            { SoundType.Introduction, m_AudioIntroductionClip },
             { SoundType.Popup, m_AudioPopupClip },
-            {SoundType.ElectronDrag, m_AudioElectronDrag },
-            {SoundType.Atomic_Number, m_Atomic_Number },
-            {SoundType.Atomic_Mass, m_Atomic_Mass },
-            {SoundType.Atomic_Name, m_Atomic_Name },
-            {SoundType.Atomic_Symbol, m_Atomic_Symbol }  
+            {SoundType.ClampDrag, m_AudioClampDrag },
         };
     }
     public void PlayOnShot(SoundType soundType)
