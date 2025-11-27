@@ -9,6 +9,7 @@ public abstract class StepAtomicBase : MonoBehaviour
     public virtual void StartStep()
     {
         CurretSteps = 0;
+        MagnifyingManager.Instance.ActiveMagnifyingObject(false);
         ExecuteCurrentStep();
     }
     public void GoToNextStep()

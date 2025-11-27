@@ -22,6 +22,7 @@ public class PipetTrigger : MonoBehaviour
             StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MinLevelVolume, m_DurationTime)); // Transfer volume from source pipet to target tube and set volume of pipet = 0
             StartCoroutine(ChangeLiquidLevel(m_LiquidVolumeTube, m_MaxLevelVolume, m_DurationTime)); // Transfer volume from source pipet to target tube and set volume of tube = 0.5
             m_StepLiquid?.GoToNextStep();
+            MagnifyingManager.Instance.ActiveMagnifyingObject(true);
         }
         else if (other.CompareTag("Flask"))
         {

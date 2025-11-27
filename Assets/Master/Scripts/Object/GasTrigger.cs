@@ -38,6 +38,7 @@ public class GasTrigger : MonoBehaviour
         }
         SetMaterial(toMat);
         MouseDragLock.Unblock();
+        MagnifyingManager.Instance.ActiveMagnifyingObject(true);
     }
     private void SetMaterial(Material material)
     {

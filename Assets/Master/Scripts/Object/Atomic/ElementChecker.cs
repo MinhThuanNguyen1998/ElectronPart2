@@ -29,7 +29,7 @@ public class ElementChecker : MonoBehaviour
             return;
         }
         ElementData data = m_ListElements.FirstOrDefault(e => string.Equals(e.name, elementName, StringComparison.OrdinalIgnoreCase));
-        Debug.Log($"Name: {data.name}\n" + $"Symbol: {data.symbol}\n" + $"Atomic Number: {data.atomicNumber}\n" + $"Atomic Mass: {data.atomicMass}\n" + $"Shells: {string.Join(", ", data.shells)}");
+        //Debug.Log($"Name: {data.name}\n" + $"Symbol: {data.symbol}\n" + $"Atomic Number: {data.atomicNumber}\n" + $"Atomic Mass: {data.atomicMass}\n" + $"Shells: {string.Join(", ", data.shells)}");
         m_ElementDisplay?.DisplayElementInformation(data.atomicNumber, data.symbol, data.name, data.atomicMass);
 
     }
