@@ -21,10 +21,6 @@ public class StepSolid : StepAtomicBase
             case 1:
                 Debug.Log("Solid step 1");
                 break;
-
-            case 2:
-                Debug.Log("Solid step 2");
-                break;
         }
     }
 }

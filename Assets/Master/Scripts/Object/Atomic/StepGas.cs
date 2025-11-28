@@ -13,10 +13,10 @@ public class StepGas : StepAtomicBase
         switch (CurretSteps)
         {
             case 0:
-                Debug.Log("Solid step 0");
+                Debug.Log("Solid step 0: Place the tube at pipe station");
                 break;
             case 1:
-                Debug.Log("Solid step 1");
+                Debug.Log("Solid step 1: Use a magnifying glass");
                 break;
         }
     }
