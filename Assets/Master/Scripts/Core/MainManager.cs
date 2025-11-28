@@ -40,14 +40,17 @@ public class MainManager : Singleton<MainManager>
         preloadList.Add(m_expGO);
         preloadList.Add(m_tutorialGO);
         ActiveGameObjectPrefabView(true);
+
         // Bắt đầu preload
         StartCoroutine(PreloadPrefabs());
+
     }
 
     private void ActiveGameObjectPrefabView(bool isActive)
     {
         m_expGO.SetActive(!isActive);
         m_menuGO.SetActive(isActive);
+        m_GroupVoice.SetActive(isActive);
         m_tutorialGO.SetActive(!isActive);
     }
     private IEnumerator PreloadPrefabs()
