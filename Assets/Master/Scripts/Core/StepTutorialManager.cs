@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-public class StepTutorialManager : MonoBehaviour
+public class StepTutorialManager : Singleton<StepTutorialManager>
 {
     [SerializeField] private GameObject m_StepTutorialPanel;
     [SerializeField] private List<GameObject> m_ListSteps = new();
-    [SerializeField] private float m_DelayShowTutorialIcon = 60f;
+    [SerializeField] private float m_DelayShowTutorialIcon = 5f;
     [SerializeField] private List<VideoPlayer> m_VideoPlayers = new();
     [SerializeField] private GameObject m_TutorialIcon;
     [SerializeField] private GameObject m_HideObj;
@@ -21,16 +21,6 @@ public class StepTutorialManager : MonoBehaviour
     private float _DelayShowTutorialIcon = 0f;
     private bool IsFirstTimeShowTutorial = true;
 
-    private void OnEnable()
-    {
-        LabMode.OnGotoState += GotoState;
-      
-    }
-    private void OnDisable()
-    {
-        LabMode.OnGotoState -= GotoState;
-       
-    }
     private void Start()
     {
         m_HideObj.gameObject.SetActive(false);
@@ -63,6 +53,7 @@ public class StepTutorialManager : MonoBehaviour
     }
     public void ShowCurrentStateTutorial()
     {
+        Debug.Log("Show current state");
         //UIPopupHelper.Popup(m_StepTutorialPanel);
         m_VideoPlayers[_currentState].Stop();
         m_VideoPlayers[_currentState].Play();
