@@ -9,7 +9,6 @@ public enum StartMode
     ExpProcess,
     Tutorial
 }
-
 public class MainManager : Singleton<MainManager>
 {
     [Header("Prefabs / Scenes")]
@@ -17,6 +16,8 @@ public class MainManager : Singleton<MainManager>
     [SerializeField] private GameObject m_tutorialGO;
     [SerializeField] private GameObject m_menuGO;
 
+    [Header("Prefabs / Scenes")]
+    [SerializeField] private GameObject m_GroupVoice;
     [Header("Transition Setting")]
     [SerializeField] private TransitionSettings m_transitionSettings;
 
@@ -32,9 +33,6 @@ public class MainManager : Singleton<MainManager>
 
     public bool IsFullScreen => PlayerPrefs.GetInt(PREF_FULLSCREEN_KEY, 1) == 1;
 
-    // ===================================================
-    // 🏁 UNITY LIFECYCLE
-    // ===================================================
     private void Start()
     {
         ApplyDisplayMode(); // Áp dụng chế độ hiển thị đã lưu
@@ -73,10 +71,6 @@ public class MainManager : Singleton<MainManager>
             LoadNewScene(m_tutorialGO);
         }
     }
-
-    // ===================================================
-    // 🎬 SCENE MANAGEMENT
-    // ===================================================
     private void LoadNewScene(GameObject prefab)
     {
         if (TransitionManager.Instance().IsRunningTransition) return;
@@ -87,10 +81,15 @@ public class MainManager : Singleton<MainManager>
             _tmp = m_menuGO;
             isFirstLoad = false;
         }
-
         TransitionManager.Instance().Transition(prefab, transform, m_transitionSettings, 0.2f, 0.5f, _tmp);
+        bool shouldShowGroupVoice = prefab == m_menuGO;
+        StartCoroutine(ToggleGroupVoiceWithDelay(shouldShowGroupVoice, 1f));
     }
-
+    private IEnumerator ToggleGroupVoiceWithDelay(bool active, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        m_GroupVoice.SetActive(active);
+    }
     public void LoadExp() => LoadNewScene(m_expGO);
     public void LoadTutorial() => LoadNewScene(m_tutorialGO);
     public void LoadMenu() => LoadNewScene(m_menuGO);
@@ -104,10 +103,6 @@ public class MainManager : Singleton<MainManager>
         Application.Quit();
 #endif
     }
-
-    // ===================================================
-    // 🖥️ DISPLAY MANAGEMENT
-    // ===================================================
     public void ApplyDisplayMode()
     {
         bool isFull = IsFullScreen;
@@ -128,16 +123,13 @@ public class MainManager : Singleton<MainManager>
         if (Camera.main != null)
             Camera.main.ResetAspect();
     }
-
     public void ToggleDisplayMode()
     {
         bool isFull = IsFullScreen;
         bool newState = !isFull;
-
         // 🔁 Lưu trạng thái mới
         PlayerPrefs.SetInt(PREF_FULLSCREEN_KEY, newState ? 1 : 0);
         PlayerPrefs.Save();
-
         // Áp dụng thay đổi
         ApplyDisplayMode();
 
