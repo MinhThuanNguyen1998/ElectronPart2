@@ -846,7 +846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 1:</color> D\xF9ng k\u1EB9p g\u1EA5p ch\u1EA5t
+  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 1:</color> D\xF9ng k\u1EB9p g\u1EAFp ch\u1EA5t
     r\u1EAFn b\u1ECF v\xE0o \u0111\u0129a petri"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7362f3990db07954a9570669bf1a5bdd, type: 2}
@@ -6564,7 +6564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 1:</color> D\xF9ng k\u1EB9p g\u1EA5p ch\u1EA5t
+  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 1:</color> D\xF9ng k\u1EB9p g\u1EAFp ch\u1EA5t
     r\u1EAFn b\u1ECF v\xE0o \u0111\u0129a petri"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7362f3990db07954a9570669bf1a5bdd, type: 2}
@@ -15530,8 +15530,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19860,7 +19860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -19871,7 +19871,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -21200,7 +21200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 3:</color> D\xF9ng k\xEDp l\xFAp quan s\xE1t
+  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 3:</color> D\xF9ng k\xEDnh l\xFAp quan s\xE1t
     c\u1EA5u h\xECnh nguy\xEAn t\u1EED"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7362f3990db07954a9570669bf1a5bdd, type: 2}
@@ -26640,7 +26640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 2:</color> D\xF9ng k\xEDp l\xFAp quan s\xE1t
+  m_text: "<color=#FBEF00>B\u01B0\u1EDBc 2:</color> D\xF9ng k\xEDnh l\xFAp quan s\xE1t
     c\u1EA5u h\xECnh nguy\xEAn t\u1EED"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7362f3990db07954a9570669bf1a5bdd, type: 2}
@@ -29988,8 +29988,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
