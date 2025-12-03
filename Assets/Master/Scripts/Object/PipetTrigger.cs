@@ -35,6 +35,7 @@ public class PipetTrigger : MonoBehaviour
     IEnumerator ChangeLiquidLevel(LiquidVolume liquid, float targetLevel, float duration)
     {
         MouseDragLock.Block();
+        AudioMainManager.Instance.PlayOnShot(SoundType.Liquid);
         float start = liquid.level;
         float t = 0;
         while (t < duration)

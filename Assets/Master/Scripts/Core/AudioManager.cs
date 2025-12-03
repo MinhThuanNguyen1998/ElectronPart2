@@ -5,9 +5,9 @@ public enum SoundType
 {
     Button,
     Popup,
+    Solid,
+    Liquid,
     Gas,
- 
-
 }
 public class AudioMainManager : SingletonMain<AudioMainManager>
 {
@@ -15,6 +15,8 @@ public class AudioMainManager : SingletonMain<AudioMainManager>
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_AudioPopupClip;
     [SerializeField] private AudioClip m_AudioButtonClip;
+    [SerializeField] private AudioClip m_AudioSolid;
+    [SerializeField] private AudioClip m_AudioLiquid;
     [SerializeField] private AudioClip m_AudioGas;
  
 
@@ -25,6 +27,8 @@ public class AudioMainManager : SingletonMain<AudioMainManager>
         {
             { SoundType.Button, m_AudioButtonClip },
             { SoundType.Popup, m_AudioPopupClip },
+            {SoundType.Solid,m_AudioSolid},
+            {SoundType.Liquid,m_AudioLiquid},
             {SoundType.Gas, m_AudioGas },
         };
     }
