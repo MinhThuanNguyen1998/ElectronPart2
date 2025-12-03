@@ -199,8 +199,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.884076, y: 0.7376973, z: 1}
-  m_Center: {x: 0.032966137, y: -0.041501496, z: 0}
+  m_Size: {x: 4.884076, y: 1.3333964, z: 1}
+  m_Center: {x: 0.032966137, y: 0.25634804, z: 0}
 --- !u!54 &772692565109644327
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0029993055, y: -0.278333, z: 2.4966662}
-  m_LocalScale: {x: 4.8204293, y: 0.07881657, z: 4.666666}
+  m_LocalScale: {x: 4.820429, y: 0.07881657, z: 4.6666656}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6754500236446764810}
@@ -736,7 +736,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.020581482, y: -0.025722979, z: 2.4966662}
-  m_LocalScale: {x: 4.9142838, y: 0.33150253, z: 4.666666}
+  m_LocalScale: {x: 4.9142833, y: 0.3315025, z: 4.6666656}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6754500236446764810}
@@ -977,9 +977,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6754500236446764810}
   - {fileID: 5313597995171691498}
   - {fileID: 7219636314389250216}
-  - {fileID: 6754500236446764810}
   - {fileID: 5652415559213159920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
