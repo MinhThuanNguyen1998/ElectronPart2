@@ -5,7 +5,7 @@ public enum SoundType
 {
     Button,
     Popup,
-    ClampDrag,
+    Gas,
  
 
 }
@@ -15,7 +15,7 @@ public class AudioMainManager : SingletonMain<AudioMainManager>
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_AudioPopupClip;
     [SerializeField] private AudioClip m_AudioButtonClip;
-    [SerializeField] private AudioClip m_AudioClampDrag;
+    [SerializeField] private AudioClip m_AudioGas;
  
 
     private Dictionary<SoundType, AudioClip> m_SoundMap;
@@ -25,7 +25,7 @@ public class AudioMainManager : SingletonMain<AudioMainManager>
         {
             { SoundType.Button, m_AudioButtonClip },
             { SoundType.Popup, m_AudioPopupClip },
-            {SoundType.ClampDrag, m_AudioClampDrag },
+            {SoundType.Gas, m_AudioGas },
         };
     }
     public void PlayOnShot(SoundType soundType)

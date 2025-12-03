@@ -10,7 +10,7 @@ public class GasTrigger : MonoBehaviour
     [SerializeField] private Material m_EffectMaterial;
     [SerializeField] private List<Renderer> m_ListRenderer;
     private bool m_IsGasTrigger = false;
-    private float m_LerpDuration = 14f;
+    private float m_LerpDuration = 13f;
     private float m_TimeToChangeMaterial = 18f;
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +25,7 @@ public class GasTrigger : MonoBehaviour
     private IEnumerator LerpMaterial(Material fromMat, Material toMat, float duration)
     {
         MouseDragLock.Block();
+        AudioMainManager.Instance.PlayOnShot(SoundType.Gas);
         float time = 0f;
         while (time < duration)
         {
@@ -35,11 +36,13 @@ public class GasTrigger : MonoBehaviour
             }
             time += Time.deltaTime;
             yield return null;
+
         }
         SetMaterial(toMat);
         MouseDragLock.Unblock();
         MagnifyingManager.Instance.ActiveMagnifyingObject(true);
         StepTutorialManager.Instance.GotoState(6);
+
     }
     private void SetMaterial(Material material)
     {

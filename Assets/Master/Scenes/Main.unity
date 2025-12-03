@@ -27341,7 +27341,7 @@ MonoBehaviour:
   m_AudioSource: {fileID: 1906487771}
   m_AudioPopupClip: {fileID: 8300000, guid: de237685fd1c0f8418aebccfbdb45954, type: 3}
   m_AudioButtonClip: {fileID: 8300000, guid: 5f29313afe89d8a46944344f7408d3d4, type: 3}
-  m_AudioClampDrag: {fileID: 8300000, guid: 81972efcb20f9694189e04050fb2e522, type: 3}
+  m_AudioGas: {fileID: 8300000, guid: 1ee74b4beaebb7449a4da86445bb70db, type: 3}
 --- !u!4 &1906487773
 Transform:
   m_ObjectHideFlags: 0
@@ -40687,6 +40687,7 @@ MonoBehaviour:
   m_Fcp: {fileID: 3159629835568577756}
   m_NewMaterial: {fileID: 2100000, guid: 8018c8679e2ec1241b9e7378dd13a2d0, type: 2}
   m_DefaultMaterial: {fileID: 2100000, guid: 9db1c047bf743564eb994b33c4efcc23, type: 2}
+  m_ResetDefaultMaterialButton: {fileID: 0}
 --- !u!224 &9101902159167415820
 RectTransform:
   m_ObjectHideFlags: 0
