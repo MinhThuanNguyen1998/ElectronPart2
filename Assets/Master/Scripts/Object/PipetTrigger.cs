@@ -14,22 +14,44 @@ public class PipetTrigger : MonoBehaviour
     private float m_MaxLevelVolume = 0.5f;
 
     private bool m_IsPipetFilled = false;
+    private bool m_IsInTrigger = false;
+    private Collider m_CurrentCollider;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Tube"))
+        m_CurrentCollider = other;
+        m_IsInTrigger = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == m_CurrentCollider)
+        {
+            m_CurrentCollider = null;
+            m_IsInTrigger = false;
+        }
+    }
+    public void TriggerActionByButton()
+    {
+        if (!m_IsInTrigger || m_CurrentCollider == null) return;
+        // ========= FLASK =========
+        if (m_CurrentCollider.CompareTag("Flask"))
+        {
+            if (m_LiquidVolumePipet.level >= m_MaxLevelVolume ||
+                m_LiquidVolumeTube.level >= m_MaxLevelVolume) return;
+
+            m_IsPipetFilled = true;
+            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MaxLevelVolume, m_DurationTime));
+            m_StepLiquid?.GoToNextStep();
+        }
+        // ========= TUBE =========
+        else if (m_CurrentCollider.CompareTag("Tube"))
         {
             if (!m_IsPipetFilled || m_LiquidVolumeTube.level >= m_MaxLevelVolume) return;
-            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MinLevelVolume, m_DurationTime)); // Transfer volume from source pipet to target tube and set volume of pipet = 0
-            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumeTube, m_MaxLevelVolume, m_DurationTime)); // Transfer volume from source pipet to target tube and set volume of tube = 0.5
+
+            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MinLevelVolume, m_DurationTime));
+            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumeTube, m_MaxLevelVolume, m_DurationTime));
+
             m_StepLiquid?.GoToNextStep();
             MagnifyingManager.Instance.ActiveMagnifyingObject(true);
-        }
-        else if (other.CompareTag("Flask"))
-        {
-            if (m_LiquidVolumePipet.level >= m_MaxLevelVolume || m_LiquidVolumeTube.level >= m_MaxLevelVolume) return;
-            m_IsPipetFilled = true;
-            StartCoroutine(ChangeLiquidLevel(m_LiquidVolumePipet, m_MaxLevelVolume, m_DurationTime)); // Transfer volume from source flask to target pipet and set volume of pipet = 0.5
-            m_StepLiquid?.GoToNextStep();
         }
     }
     IEnumerator ChangeLiquidLevel(LiquidVolume liquid, float targetLevel, float duration)
@@ -47,4 +69,5 @@ public class PipetTrigger : MonoBehaviour
         liquid.level = targetLevel;
         MouseDragLock.Unblock();
     }
+    
 }
