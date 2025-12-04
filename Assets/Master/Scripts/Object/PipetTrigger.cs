@@ -15,6 +15,7 @@ public class PipetTrigger : MonoBehaviour
 
     private bool m_IsPipetFilled = false;
     private bool m_IsInTrigger = false;
+    private bool m_IsProcessing = false;
     private Collider m_CurrentCollider;
     private void OnTriggerEnter(Collider other)
     {
@@ -31,6 +32,7 @@ public class PipetTrigger : MonoBehaviour
     }
     public void TriggerActionByButton()
     {
+        if (m_IsProcessing) return;
         if (!m_IsInTrigger || m_CurrentCollider == null) return;
         // ========= FLASK =========
         if (m_CurrentCollider.CompareTag("Flask"))
@@ -57,6 +59,7 @@ public class PipetTrigger : MonoBehaviour
     IEnumerator ChangeLiquidLevel(LiquidVolume liquid, float targetLevel, float duration)
     {
         MouseDragLock.Block();
+        m_IsProcessing = true;
         AudioMainManager.Instance.PlayOnShot(SoundType.Liquid);
         float start = liquid.level;
         float t = 0;
@@ -68,6 +71,7 @@ public class PipetTrigger : MonoBehaviour
         }
         liquid.level = targetLevel;
         MouseDragLock.Unblock();
+        m_IsProcessing = false;
     }
     
 }
