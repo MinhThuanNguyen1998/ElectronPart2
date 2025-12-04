@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TutorialData_North
   m_EditorClassIdentifier: 
   m_data:
-  - buttonName: Menu
+  - buttonName: "Tr\u1EDF v\u1EC1"
     buttonContent: "N\xFAt tr\u1EDF v\u1EC1 menu ch\xEDnh c\u1EE7a ph\u1EA7n m\u1EC1m"
     buttonAudio: {fileID: 8300000, guid: 5406b3de98b06294cb29dcb7777932d8, type: 3}
-  - buttonName: Reset
+  - buttonName: "T\u1EA3i l\u1EA1i"
     buttonContent: "N\xFAt t\u1EA3i l\u1EA1i th\xED nghi\u1EC7m t\u1EEB \u0111\u1EA7u"
     buttonAudio: {fileID: 8300000, guid: 8198751e77e385340b3c48fcbd55a446, type: 3}
   - buttonName: "\u0110\u1ED5i m\xE0u k\xEDnh l\xFAp"
