@@ -41,6 +41,7 @@ public class TutorialUI : MonoBehaviour
     // ==============================
     private void Reset()
     {
+        MagnifyingManager.Instance.ActiveMagnifyingObject(false);
         currentStep = -1;
         ShowNextStep();
     }
