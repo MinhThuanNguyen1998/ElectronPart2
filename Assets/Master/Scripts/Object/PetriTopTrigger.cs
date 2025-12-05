@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class PetriTopTrigger : MonoBehaviour
+public class PetriTopTrigger : BaseTrigger
 {
     [SerializeField] StepSolid m_StepSolid;
     [SerializeField] GameObject m_ParentPetri;
     [SerializeField] GameObject m_EmptyParent;
     [SerializeField] PetriBottomTrigger m_PetriBottomTrigger;
-    private void OnTriggerEnter(Collider other)
+    protected override void OnEnter(Collider other)
     {
         if (m_PetriBottomTrigger != null && m_PetriBottomTrigger.IsTriggeredFromBottom) return;
             if (other.CompareTag("Solid"))
@@ -17,7 +17,7 @@ public class PetriTopTrigger : MonoBehaviour
             other.transform.SetParent(m_ParentPetri.transform);
         }
     }
-    private void OnTriggerExit(Collider other)
+    protected override void OnExit(Collider other)
     {
         if (other.CompareTag("Solid"))
         {

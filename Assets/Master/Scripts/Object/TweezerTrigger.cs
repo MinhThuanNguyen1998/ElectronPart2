@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TweezerTrigger : MonoBehaviour
+public class TweezerTrigger : BaseTrigger
 {
     [SerializeField] private MovingObjectByMouse m_MovingObjectByMouse;
     [SerializeField] private Transform m_ClampPoint;
@@ -25,17 +25,17 @@ public class TweezerTrigger : MonoBehaviour
         rb.useGravity = true;
         other.transform.SetParent(m_EmptyParent.transform);
     }
-    private void OnTriggerEnter(Collider other)
+    protected override void OnEnter(Collider other)
     {
         if (!m_MovingObjectByMouse.m_IsDragging) return;
         ClampSolid(other);
     }
-    private void OnTriggerStay(Collider other)
+    protected override void OnStay(Collider other)
     {
         if (!m_MovingObjectByMouse.m_IsDragging) return;
         ClampSolid(other);
     }
-    private void OnTriggerExit(Collider other)
+    protected override void OnExit(Collider other)
     {
         ReleaseSolid(other);
     }

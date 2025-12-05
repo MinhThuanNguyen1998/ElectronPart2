@@ -4,7 +4,7 @@ using UnityEngine;
 using static Unity.VisualScripting.Member;
 using static UnityEngine.GraphicsBuffer;
 
-public class PipetTrigger : MonoBehaviour
+public class PipetTrigger : BaseTrigger
 {
     [SerializeField] private LiquidVolume m_LiquidVolumePipet;
     [SerializeField] private LiquidVolume m_LiquidVolumeTube;
@@ -17,12 +17,12 @@ public class PipetTrigger : MonoBehaviour
     private bool m_IsInTrigger = false;
     private bool m_IsProcessing = false;
     private Collider m_CurrentCollider;
-    private void OnTriggerEnter(Collider other)
+    protected override void OnEnter(Collider other)
     {
         m_CurrentCollider = other;
         m_IsInTrigger = true;
     }
-    private void OnTriggerExit(Collider other)
+    protected override void OnExit(Collider other)
     {
         if (other == m_CurrentCollider)
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GasTrigger : MonoBehaviour
+public class GasTrigger : BaseTrigger
 {
     [SerializeField] private StepGas m_StepGas;
     [SerializeField] private Material m_OriginMaterial;
@@ -12,7 +12,8 @@ public class GasTrigger : MonoBehaviour
     private bool m_IsGasTrigger = false;
     private float m_LerpDuration = 13f;
     private float m_TimeToChangeMaterial = 18f;
-    private void OnTriggerEnter(Collider other)
+    
+    protected override void OnEnter(Collider other)
     {
         if (m_IsGasTrigger) return;
         if (other.CompareTag("Pipe"))

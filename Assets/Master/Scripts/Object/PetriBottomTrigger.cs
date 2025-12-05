@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class PetriBottomTrigger : MonoBehaviour
+public class PetriBottomTrigger : BaseTrigger
 {
     public bool IsTriggeredFromBottom { get; private set; }
-    private void OnTriggerEnter(Collider other)
+    protected override void OnEnter(Collider other)
     {
         if (other.CompareTag("Solid"))
         {
             IsTriggeredFromBottom = true;
         }
     }
-    private void OnTriggerExit(Collider other)
+    protected override void OnExit(Collider other)
     {
         if (other.CompareTag("Solid"))
         {
