@@ -13,4 +13,5 @@ public class SolidFallSound : MonoBehaviour
         if (collision.gameObject.CompareTag("Table")) return;
         AudioMainManager.Instance.PlayOnShot(SoundType.Solid);
     }
+    
 }

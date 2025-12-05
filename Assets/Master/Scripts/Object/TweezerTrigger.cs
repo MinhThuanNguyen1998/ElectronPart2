@@ -30,7 +30,6 @@ public class TweezerTrigger : MonoBehaviour
         if (!m_MovingObjectByMouse.m_IsDragging) return;
         ClampSolid(other);
     }
-
     private void OnTriggerStay(Collider other)
     {
         if (!m_MovingObjectByMouse.m_IsDragging) return;
